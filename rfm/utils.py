@@ -7,3 +7,6 @@ def low_frequency_customers(rfm, max_f=2):
 
 def at_risk_count(rfm):
     return (rfm["segment"] == "At Risk").sum()
+
+def champions_revenue(rfm):
+    return rfm[rfm["segment"] == "Champions"]["monetary"].sum().round(2)
