@@ -13,3 +13,6 @@ def champions_revenue(rfm):
 
 def rfm_stats(rfm):
     return rfm[["recency","frequency","monetary"]].describe().round(2)
+
+def segment_counts(rfm):
+    return rfm["segment"].value_counts().to_dict()
