@@ -22,3 +22,6 @@ def high_clv_customers(rfm, n=100):
 
 def lost_revenue(rfm):
     return rfm[rfm["segment"] == "Lost"]["monetary"].sum().round(2)
+
+def avg_recency_by_segment(rfm):
+    return rfm.groupby("segment")["recency"].mean().round(1)
