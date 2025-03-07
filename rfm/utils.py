@@ -25,3 +25,6 @@ def lost_revenue(rfm):
 
 def avg_recency_by_segment(rfm):
     return rfm.groupby("segment")["recency"].mean().round(1)
+
+def winback_list(rfm, min_monetary=200):
+    return rfm[(rfm["recency"] > 60) & (rfm["monetary"] >= min_monetary)][["customer_id","monetary","recency"]]
