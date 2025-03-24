@@ -28,3 +28,6 @@ def avg_recency_by_segment(rfm):
 
 def winback_list(rfm, min_monetary=200):
     return rfm[(rfm["recency"] > 60) & (rfm["monetary"] >= min_monetary)][["customer_id","monetary","recency"]]
+
+def rfm_score_distribution(rfm):
+    return rfm["RFM_total"].value_counts().sort_index()
