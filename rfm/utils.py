@@ -37,3 +37,6 @@ def top_segments_by_revenue(rfm):
 
 def customer_age_days(rfm):
     return rfm["recency"].describe().round(1)
+
+def hibernating_customers(rfm):
+    return rfm[rfm["segment"] == "Hibernating"][["customer_id","recency","monetary"]]
