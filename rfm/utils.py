@@ -40,3 +40,6 @@ def customer_age_days(rfm):
 
 def hibernating_customers(rfm):
     return rfm[rfm["segment"] == "Hibernating"][["customer_id","recency","monetary"]]
+
+def new_customer_list(rfm):
+    return rfm[rfm["segment"] == "New Customers"][["customer_id","frequency","monetary"]]
