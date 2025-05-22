@@ -43,3 +43,6 @@ def hibernating_customers(rfm):
 
 def new_customer_list(rfm):
     return rfm[rfm["segment"] == "New Customers"][["customer_id","frequency","monetary"]]
+
+def loyal_customer_ids(rfm):
+    return rfm[rfm["segment"] == "Loyal Customers"]["customer_id"].tolist()
