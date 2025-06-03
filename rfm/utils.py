@@ -46,3 +46,7 @@ def new_customer_list(rfm):
 
 def loyal_customer_ids(rfm):
     return rfm[rfm["segment"] == "Loyal Customers"]["customer_id"].tolist()
+
+def monetary_percentile(rfm, pct=0.9):
+    import numpy as np
+    return np.percentile(rfm["monetary"], pct * 100).round(2)
