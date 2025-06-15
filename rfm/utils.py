@@ -50,3 +50,6 @@ def loyal_customer_ids(rfm):
 def monetary_percentile(rfm, pct=0.9):
     import numpy as np
     return np.percentile(rfm["monetary"], pct * 100).round(2)
+
+def frequency_distribution(rfm):
+    return rfm["frequency"].value_counts().sort_index()
