@@ -53,3 +53,8 @@ def monetary_percentile(rfm, pct=0.9):
 
 def frequency_distribution(rfm):
     return rfm["frequency"].value_counts().sort_index()
+
+def recency_buckets(rfm):
+    import pandas as pd
+    return pd.cut(rfm["recency"], bins=[0,30,60,90,180,365,9999],
+                  labels=["<30d","30-60d","60-90d","90-180d","180d-1yr",">1yr"])
