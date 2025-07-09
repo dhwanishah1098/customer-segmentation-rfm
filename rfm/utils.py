@@ -58,3 +58,6 @@ def recency_buckets(rfm):
     import pandas as pd
     return pd.cut(rfm["recency"], bins=[0,30,60,90,180,365,9999],
                   labels=["<30d","30-60d","60-90d","90-180d","180d-1yr",">1yr"])
+
+def email_ready_list(rfm, segment):
+    return rfm[rfm["segment"] == segment][["customer_id","monetary","recency"]].reset_index(drop=True)
