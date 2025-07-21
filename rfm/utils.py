@@ -61,3 +61,6 @@ def recency_buckets(rfm):
 
 def email_ready_list(rfm, segment):
     return rfm[rfm["segment"] == segment][["customer_id","monetary","recency"]].reset_index(drop=True)
+
+def high_value_customers(rfm, threshold=1000):
+    return rfm[rfm["monetary"] >= threshold]
