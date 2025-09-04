@@ -73,3 +73,6 @@ def at_risk_count(rfm):
 
 def champions_revenue(rfm):
     return rfm[rfm["segment"] == "Champions"]["monetary"].sum().round(2)
+
+def rfm_stats(rfm):
+    return rfm[["recency","frequency","monetary"]].describe().round(2)
