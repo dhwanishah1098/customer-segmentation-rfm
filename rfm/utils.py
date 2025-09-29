@@ -79,3 +79,6 @@ def rfm_stats(rfm):
 
 def segment_counts(rfm):
     return rfm["segment"].value_counts().to_dict()
+
+def high_clv_customers(rfm, n=100):
+    return rfm.nlargest(n, "clv") if "clv" in rfm.columns else rfm
