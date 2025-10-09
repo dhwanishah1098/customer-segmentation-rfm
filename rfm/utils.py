@@ -82,3 +82,6 @@ def segment_counts(rfm):
 
 def high_clv_customers(rfm, n=100):
     return rfm.nlargest(n, "clv") if "clv" in rfm.columns else rfm
+
+def lost_revenue(rfm):
+    return rfm[rfm["segment"] == "Lost"]["monetary"].sum().round(2)
