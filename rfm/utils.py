@@ -94,3 +94,6 @@ def winback_list(rfm, min_monetary=200):
 
 def rfm_score_distribution(rfm):
     return rfm["RFM_total"].value_counts().sort_index()
+
+def top_segments_by_revenue(rfm):
+    return rfm.groupby("segment")["monetary"].sum().sort_values(ascending=False)
