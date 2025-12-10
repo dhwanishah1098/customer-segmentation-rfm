@@ -97,3 +97,6 @@ def rfm_score_distribution(rfm):
 
 def top_segments_by_revenue(rfm):
     return rfm.groupby("segment")["monetary"].sum().sort_values(ascending=False)
+
+def customer_age_days(rfm):
+    return rfm["recency"].describe().round(1)
